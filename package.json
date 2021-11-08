@@ -3,25 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^12.0.0",
+    "@types/node": "^16.11.6",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^2.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.2",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "coverage": "yarn test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,6 +43,15 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/serviceWorker.ts",
+      "!src/index.tsx",
+      "!src/**/*.d.ts",
+      "!src/reportWebVitals.ts"
     ]
   }
 }
